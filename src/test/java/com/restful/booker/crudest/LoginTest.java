@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class LoginTest extends TestBase {
+public class LoginTest {
     @Test
     public void verifyUserCanLoginSuccessfully(){
         LoginPojo loginPojo=new LoginPojo();
@@ -15,13 +15,15 @@ public class LoginTest extends TestBase {
         loginPojo.setPassword("password123");
 
         Response response=given().log().all()
+                .baseUri("https://restful-booker.herokuapp.com")
                 .header("Content-Type","application/json")
-                //.header("token","bbd304b448a5369")
                 .when()
                 .body(loginPojo)
-                .post("/booking");
-        response.then().log().all().statusCode(201);
+                .post("/auth");
+        response.then().log().all().statusCode(200);
         response.prettyPrint();
+        String token = response.jsonPath().getString("token");
+        System.out.println("Received Token is : " +token);
 
     }
     }
