@@ -5,11 +5,18 @@ public class BookingPojo {
     private String lastname;
     private int totalprice;
     private boolean depositpaid;
-    private String checkin;
-    private String checkout;
+   
     private String additionalneeds;
 
+    private List<String> bookingdates;
+    
+     public List<String> getBookingdates() {
+        return bookingdates;
+    }
 
+    public void setBookingdates(List<String> bookingdates) {
+        this.bookingdates = bookingdates;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -43,21 +50,7 @@ public class BookingPojo {
         this.depositpaid = depositpaid;
     }
 
-    public String getCheckin() {
-        return checkin;
-    }
-
-    public void setCheckin(String checkin) {
-        this.checkin = checkin;
-    }
-
-    public String getCheckout() {
-        return checkout;
-    }
-
-    public void setCheckout(String checkout) {
-        this.checkout = checkout;
-    }
+  
 
     public String getAdditionalneeds() {
         return additionalneeds;
