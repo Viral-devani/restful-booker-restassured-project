@@ -13,12 +13,14 @@ public class UpdateBooking extends TestBase {
     @Test
     public void verifyBookingUpdatedSuccessfully() {
         BookingPojo bookingPojo = new BookingPojo();
+        List<String> bookingdates=new ArrayList<>();
+        
         bookingPojo.setFirstname("viral13");
         bookingPojo.setLastname("patel23");
         bookingPojo.setTotalprice(111);
         bookingPojo.setDepositpaid(true);
-        bookingPojo.setCheckin("2018-01-01");
-        bookingPojo.setCheckout("2019-01-01");
+        bookingdates.add("2018-01-01");
+        bookingdates.add("2019-01-01");
         bookingPojo.setAdditionalneeds("super bowls");
 
         Response response = given().log().all()
